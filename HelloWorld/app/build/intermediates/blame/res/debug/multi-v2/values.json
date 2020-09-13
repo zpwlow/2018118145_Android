@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\2020studio\\Android\\HelloWorld\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "E:\\2020studio\\2018118145_Android\\HelloWorld\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\zpw\\.gradle\\caches\\transforms-2\\files-2.1\\75baa063235eedb7ab2cc635bdb88d73\\constraintlayout-1.1.3\\res\\values\\values.xml",
@@ -42,22 +42,20 @@
                     }
                 },
                 {
-                    "source": "E:\\2020studio\\Android\\HelloWorld\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "E:\\2020studio\\2018118145_Android\\HelloWorld\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "7",
-                        "endColumns": "12",
-                        "endOffsets": "374"
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "157,57,105",
+                        "endColumns": "45,46,50",
+                        "endOffsets": "198,99,151"
                     },
                     "to": {
-                        "startLines": "413",
-                        "startColumns": "4",
-                        "startOffsets": "24652",
-                        "endLines": "418",
-                        "endColumns": "12",
-                        "endOffsets": "24966"
+                        "startLines": "152,153,154",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "7643,7689,7736",
+                        "endColumns": "45,46,50",
+                        "endOffsets": "7684,7731,7782"
                     }
                 },
                 {
@@ -80,23 +78,6 @@
                     }
                 },
                 {
-                    "source": "E:\\2020studio\\Android\\HelloWorld\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "17",
-                        "endColumns": "47",
-                        "endOffsets": "60"
-                    },
-                    "to": {
-                        "startLines": "405",
-                        "startColumns": "4",
-                        "startOffsets": "24038",
-                        "endColumns": "47",
-                        "endOffsets": "24081"
-                    }
-                },
-                {
                     "source": "C:\\Users\\zpw\\.gradle\\caches\\transforms-2\\files-2.1\\23f12b0a995277db82a9d4b860245889\\jetified-appcompat-resources-1.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,29,36,47,74",
@@ -116,20 +97,39 @@
                     }
                 },
                 {
-                    "source": "E:\\2020studio\\Android\\HelloWorld\\app\\src\\main\\res\\values\\colors.xml",
+                    "source": "E:\\2020studio\\2018118145_Android\\HelloWorld\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "4,2,3",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "157,57,105",
-                        "endColumns": "45,46,50",
-                        "endOffsets": "198,99,151"
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endColumns": "47",
+                        "endOffsets": "60"
                     },
                     "to": {
-                        "startLines": "152,153,154",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "7643,7689,7736",
-                        "endColumns": "45,46,50",
-                        "endOffsets": "7684,7731,7782"
+                        "startLines": "405",
+                        "startColumns": "4",
+                        "startOffsets": "24038",
+                        "endColumns": "47",
+                        "endOffsets": "24081"
+                    }
+                },
+                {
+                    "source": "E:\\2020studio\\2018118145_Android\\HelloWorld\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "7",
+                        "endColumns": "12",
+                        "endOffsets": "374"
+                    },
+                    "to": {
+                        "startLines": "413",
+                        "startColumns": "4",
+                        "startOffsets": "24652",
+                        "endLines": "418",
+                        "endColumns": "12",
+                        "endOffsets": "24966"
                     }
                 }
             ]

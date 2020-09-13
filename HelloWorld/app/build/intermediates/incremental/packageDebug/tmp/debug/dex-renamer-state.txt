@@ -1,4 +1,4 @@
-#Sun Sep 06 11:55:27 GMT+08:00 2020
-base.0=E\:\\2020studio\\Android\\HelloWorld\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Sun Sep 13 10:04:52 GMT+08:00 2020
+base.0=E\:\\2020studio\\2018118145_Android\\HelloWorld\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

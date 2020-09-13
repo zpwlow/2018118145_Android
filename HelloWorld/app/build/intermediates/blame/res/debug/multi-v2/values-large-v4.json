@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\2020studio\\Android\\HelloWorld\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "E:\\2020studio\\2018118145_Android\\HelloWorld\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\zpw\\.gradle\\caches\\transforms-2\\files-2.1\\f209091eb3926c649f0b3346884e478c\\appcompat-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
