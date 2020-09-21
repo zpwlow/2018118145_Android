@@ -11,7 +11,7 @@
         android:gravity="center"
         android:textSize="24sp"
         android:textColor="#ff0000"
-        android:text="This is TestView!"
+        android:text="This is a TestView!"
          />
 
     <Button
