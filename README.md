@@ -9,4 +9,4 @@
 
 实验三项目位置：https://github.com/zpwlow/2018118145_Android/tree/master/chap2/ActivityLifeTest
 
-实验三：https://github.com/zpwlow/2018118145_Android/blob/master/chap2/ActivityLifeTest/%E5%AE%9E%E9%AA%8C%E4%B8%89%E6%B4%BB%E5%8A%A8%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F.md
+实验三文档位置：https://github.com/zpwlow/2018118145_Android/blob/master/chap2/ActivityLifeTest/%E5%AE%9E%E9%AA%8C%E4%B8%89%E6%B4%BB%E5%8A%A8%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F.md
