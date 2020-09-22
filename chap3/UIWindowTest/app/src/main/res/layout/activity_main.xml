@@ -11,7 +11,7 @@
         android:gravity="center"
         android:textSize="24sp"
         android:textColor="#ff0000"
-        android:text="This is a TestView!"
+        android:text="This is a TestView01!"
          />
 
     <Button
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textColor="#0000ff"
-        android:text="Button"
+        android:text="Button1"
         android:textAllCaps="false"
          />
 
