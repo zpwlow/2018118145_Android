@@ -1,7 +1,10 @@
 package com.example.uiwindowtest;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,18 +34,31 @@ public class MainActivity extends AppCompatActivity
     public void onClick(View v){
         switch (v.getId()){
             case R.id.button:
-                imageView.setImageResource(R.drawable.img_2);
-                String inputText = editText.getText().toString();
+                imageView.setImageResource(R.drawable.img_2); //点击按钮更换图片
+                String inputText = editText.getText().toString(); //将输入的信息显示再Toast.
                 Toast.makeText(MainActivity.this,
                                inputText,Toast.LENGTH_SHORT).show();
-                int progress = progressBar.getProgress();
-                progress = progress + 10;
-                progressBar.setProgress(progress);
-                //if(progressBar.getVisibility()==View.GONE){
+                //int progress = progressBar.getProgress();//点击按钮增加条形进度条进度
+                //progress = progress + 10;
+                //progressBar.setProgress(progress);
+                //if(progressBar.getVisibility()==View.GONE){ //圆形进度
                     //progressBar.setVisibility(View.VISIBLE);
                // }else{
                    // progressBar.setVisibility(View.GONE);}
-
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("This is Dialog");
+                dialog.setMessage("Something important");
+                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                dialog.show();
                 break;
             default:
                 break;
