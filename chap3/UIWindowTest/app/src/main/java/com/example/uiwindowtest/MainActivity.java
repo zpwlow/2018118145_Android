@@ -35,11 +35,13 @@ public class MainActivity extends AppCompatActivity
                 String inputText = editText.getText().toString();
                 Toast.makeText(MainActivity.this,
                                inputText,Toast.LENGTH_SHORT).show();
-                if(progressBar.getVisibility()==View.GONE){
-                    progressBar.setVisibility(View.VISIBLE);
-                }else{
-                    progressBar.setVisibility(View.GONE);
-                }
+                int progress = progressBar.getProgress();
+                progress = progress + 10;
+                progressBar.setProgress(progress);
+                //if(progressBar.getVisibility()==View.GONE){
+                    //progressBar.setVisibility(View.VISIBLE);
+               // }else{
+                   // progressBar.setVisibility(View.GONE);}
 
                 break;
             default:
