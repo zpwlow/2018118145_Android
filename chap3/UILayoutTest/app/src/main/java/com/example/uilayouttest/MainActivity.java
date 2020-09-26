@@ -1,8 +1,10 @@
-package com.example.helloworld;
+package com.example.uilayouttest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.helloworld.R;
 
 public class MainActivity extends AppCompatActivity {
 
