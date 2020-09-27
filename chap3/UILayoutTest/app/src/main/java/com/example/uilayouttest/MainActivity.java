@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.helloworld.R;
+import com.example.UILayoutTest.R;
 
 public class MainActivity extends AppCompatActivity {
 

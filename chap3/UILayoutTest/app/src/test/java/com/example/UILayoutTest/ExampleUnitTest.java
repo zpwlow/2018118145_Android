@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package com.example.UILayoutTest;
 
 import org.junit.Test;
 
