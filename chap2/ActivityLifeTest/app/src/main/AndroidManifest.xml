@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.activitylifetest">
 
     <application
@@ -9,33 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".MainActivity"
-            android:label="This is MainActivity">
+            android:name="com.example.activitylifetest.SecondActivity"
+            android:label="This is SecondActivity">
+        </activity>
+        <activity
+            android:name="com.example.activitylifetest.MainActivity"
+            android:label="This is FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".NormalActivity"
-            android:label="This is NormalActivity" />
-        <activity
-            android:name=".DialogActivity"
-            android:label="This is FirstActivity"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".ThreeActivity"
-            android:label="This is ThreeActivity"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".FourActivity"
-            android:label="This is FourActivity"
-            android:launchMode="singleInstance" />
-        <activity android:name=".SecondActivity"
-            android:label="This is SecondActivity"/>
     </application>
 
 </manifest>
