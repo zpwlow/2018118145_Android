@@ -86,11 +86,3 @@ public class MainActivity extends AppCompatActivity
 }
 
 
-class TitleLayout extends LinearLayout{
-
-    public TitleLayout(Context context, AttributeSet attrs) {
-        super(context,attrs);
-        LayoutInflater.from(context).inflate(R.layout.title,this);
-        Button titleBack = (Button)
-    }
-}
