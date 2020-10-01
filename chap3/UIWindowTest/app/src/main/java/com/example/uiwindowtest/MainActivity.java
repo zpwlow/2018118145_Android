@@ -3,16 +3,23 @@ package com.example.uiwindowtest;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import java.util.jar.Attributes;
 
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
@@ -25,10 +32,14 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button button = (Button)findViewById(R.id.button);
+        ActionBar actionbar = getActionBar();
         editText = (EditText) findViewById(R.id.edit_text);
         imageView = (ImageView) findViewById(R.id.image_view);
         progressBar = (ProgressBar)findViewById(R.id.progress_bar);
         button.setOnClickListener((View.OnClickListener) this);
+        if (actionbar != null){
+            actionbar.hide();
+        }
     }
 
     @Override
@@ -71,5 +82,15 @@ public class MainActivity extends AppCompatActivity
             default:
                 break;
         }
+    }
+}
+
+
+class TitleLayout extends LinearLayout{
+
+    public TitleLayout(Context context, AttributeSet attrs) {
+        super(context,attrs);
+        LayoutInflater.from(context).inflate(R.layout.title,this);
+        Button titleBack = (Button)
     }
 }

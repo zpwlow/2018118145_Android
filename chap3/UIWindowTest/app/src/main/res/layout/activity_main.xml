@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <include layout="@layout/title"/>
 
     <TextView
         android:id="@+id/text_view"
@@ -11,7 +12,7 @@
         android:gravity="center"
         android:textSize="24sp"
         android:textColor="#ff0000"
-        android:text="This is a TestView01!"
+        android:text="这是一个视图!"
          />
 
     <Button
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textColor="#0000ff"
-        android:text="Button1"
+        android:text="按钮"
         android:textAllCaps="false"
          />
 
@@ -28,7 +29,7 @@
         android:id="@+id/edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Type something here"
+        android:hint="在这里输入内容"
         android:maxLines="2"
         />
 
