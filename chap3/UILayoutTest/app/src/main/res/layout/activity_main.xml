@@ -68,7 +68,7 @@
         android:layout_weight = "1"
         android:text = "Send"/>
     -->
-
+<!--
     <Button
         android:id = "@+id/button3"
         android:layout_width = "wrap_content"
@@ -109,5 +109,21 @@
         android:layout_below = "@id/button3"
         android:layout_toRightOf = "@id/button3"
         android:text = "Button 5"/>
+        -->
+    <TextView
+        android:id = "@+id/text_view"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_gravity = "left"
+        android:text = "This is TextView"
+        />
+
+    <ImageView
+        android:id = "@+id/image_view"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_gravity = "right"
+        android:src = "@mipmap/ic_launcher"
+        />
 
 </RelativeLayout>
