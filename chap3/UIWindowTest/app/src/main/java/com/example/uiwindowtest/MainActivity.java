@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -32,14 +34,10 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button button = (Button)findViewById(R.id.button);
-        ActionBar actionbar = getActionBar();
         editText = (EditText) findViewById(R.id.edit_text);
         imageView = (ImageView) findViewById(R.id.image_view);
         progressBar = (ProgressBar)findViewById(R.id.progress_bar);
         button.setOnClickListener((View.OnClickListener) this);
-        if (actionbar != null){
-            actionbar.hide();
-        }
     }
 
     @Override
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity
                 ProgressDialog progressDialog = new ProgressDialog
                         (MainActivity.this);
                 progressDialog.setTitle("This is ProgressDialog.。");
-                progressDialog.setMessage("Loading.....");
+                progressDialog.setMessage("加载中.....");
                 progressDialog.setCancelable(true);
                 progressDialog.show();
                 break;
