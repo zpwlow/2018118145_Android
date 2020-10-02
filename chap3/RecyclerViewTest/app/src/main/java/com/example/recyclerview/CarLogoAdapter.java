@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,11 +19,13 @@ public class CarLogoAdapter extends RecyclerView.Adapter<CarLogoAdapter.ViewHold
     public List<CarLogo> mCarlogoList;
 
     static class ViewHolder extends RecyclerView.ViewHolder{
+        View carlogoView;
         ImageView logoImage;
         TextView logoName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            carlogoView = itemView;
             logoImage = (ImageView)itemView.findViewById(R.id.logo_image);
             logoName = (TextView) itemView.findViewById(R.id.logo_name);
         }
@@ -39,7 +42,25 @@ public class CarLogoAdapter extends RecyclerView.Adapter<CarLogoAdapter.ViewHold
          onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.carlogo_item,parent,false);
-        ViewHolder holder = new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
+        holder.carlogoView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = holder.getAdapterPosition();
+                CarLogo carLogo = mCarlogoList.get(position);
+                Toast.makeText(view.getContext(),"您点击了视图 "+carLogo.getName(),
+                               Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.logoImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = holder.getAdapterPosition();
+                CarLogo carLogo = mCarlogoList.get(position);
+                Toast.makeText(view.getContext(),"您点击了图片 "+carLogo.getName(),
+                               Toast.LENGTH_SHORT).show();
+            }
+        });
         return holder;
     }
 
