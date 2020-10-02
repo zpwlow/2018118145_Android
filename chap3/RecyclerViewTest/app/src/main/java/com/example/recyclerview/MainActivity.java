@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         initCarLogo(); //初始化汽车标志
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
         CarLogoAdapter adapter = new CarLogoAdapter(carLogoList);
         recyclerView.setAdapter(adapter);
