@@ -1,5 +1,6 @@
 package com.example.recyclerview;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.util.List;
 public class CarLogoAdapter extends RecyclerView.Adapter<CarLogoAdapter.ViewHolder> {
 
     public List<CarLogo> mCarlogoList;
+    MainActivity mainActivity;
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         View carlogoView;
@@ -31,8 +33,9 @@ public class CarLogoAdapter extends RecyclerView.Adapter<CarLogoAdapter.ViewHold
         }
     }
 
-    public CarLogoAdapter(List<CarLogo> carLogoList){
+    public CarLogoAdapter(List<CarLogo> carLogoList, MainActivity mainActivity){
         mCarlogoList = carLogoList;
+        mainActivity = mainActivity;
     }
 
 
@@ -46,23 +49,18 @@ public class CarLogoAdapter extends RecyclerView.Adapter<CarLogoAdapter.ViewHold
         holder.carlogoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InputDialogFragment dialog = new InputDialogFragment();
+                dialog.show(mainActivity.getFragmentManager(), "InputDialog");
                 int position = holder.getAdapterPosition();
                 CarLogo carLogo = mCarlogoList.get(position);
-                Toast.makeText(view.getContext(),"您点击了视图 "+carLogo.getName(),
-                               Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(),"您点击了视图 "+carLogo.getName(), Toast.LENGTH_SHORT).show();
             }
+
         });
-        holder.logoImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int position = holder.getAdapterPosition();
-                CarLogo carLogo = mCarlogoList.get(position);
-                Toast.makeText(view.getContext(),"您点击了图片 "+carLogo.getName(),
-                               Toast.LENGTH_SHORT).show();
-            }
-        });
+
         return holder;
     }
+
 
     @Override
     public void onBindViewHolder(ViewHolder holder,
@@ -77,4 +75,10 @@ public class CarLogoAdapter extends RecyclerView.Adapter<CarLogoAdapter.ViewHold
     public int getItemCount() {
         return mCarlogoList.size();
     }
+
+
+
+
+
+
 }

@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public  class MainActivity extends AppCompatActivity {
 
     private List<CarLogo> carLogoList = new ArrayList<>();
 
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         //LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
-        CarLogoAdapter adapter = new CarLogoAdapter(carLogoList);
+        CarLogoAdapter adapter = new CarLogoAdapter(carLogoList,this);
         recyclerView.setAdapter(adapter);
     }
 
@@ -75,4 +77,20 @@ public class MainActivity extends AppCompatActivity {
         }
         return builder.toString();
     }
+
+
+    public void showLoginDialog(View view)
+    {
+        InputDialogFragment dialog = new InputDialogFragment();
+        dialog.show(getFragmentManager(), "InputDialog");
+
+    }
+
+    public void onLoginInputComplete(String username, String password)
+    {
+        Toast.makeText(this, "帐号：" + username + ",  密码 :" + password,
+                       Toast.LENGTH_SHORT).show();
+    }
+
+
 }
