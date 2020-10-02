@@ -1,6 +1,7 @@
 package com.example.recyclerview;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -27,20 +28,32 @@ public class CarLogoAdapter extends RecyclerView.Adapter<CarLogoAdapter.ViewHold
         }
     }
 
+    public CarLogoAdapter(List<CarLogo> carLogoList){
+        mCarlogoList = carLogoList;
+    }
+
 
     @NonNull
     @Override
-    public CarLogoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public CarLogoAdapter.ViewHolder
+         onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.carlogo_item,parent,false);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CarLogoAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CarLogoAdapter.ViewHolder holder,
+                                 int position) {
+        CarLogo carLogo = mCarlogoList.get(position);
+        holder.logoImage.setImageResource(carLogo.getImageId());
+        holder.logoName.setText(carLogo.getName());
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mCarlogoList.size();
     }
 }
