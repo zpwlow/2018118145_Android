@@ -36,7 +36,7 @@ public class CarLogoAdapter extends RecyclerView.Adapter<CarLogoAdapter.ViewHold
     @NonNull
     @Override
     public CarLogoAdapter.ViewHolder
-         onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+         onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.carlogo_item,parent,false);
         ViewHolder holder = new ViewHolder(view);
@@ -44,7 +44,7 @@ public class CarLogoAdapter extends RecyclerView.Adapter<CarLogoAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CarLogoAdapter.ViewHolder holder,
+    public void onBindViewHolder(ViewHolder holder,
                                  int position) {
         CarLogo carLogo = mCarlogoList.get(position);
         holder.logoImage.setImageResource(carLogo.getImageId());
