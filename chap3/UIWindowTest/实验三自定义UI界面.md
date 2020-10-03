@@ -12,19 +12,19 @@
 
 运行时UI的界面如下：
 
-<img src="../image/image-20201001111117707.png" alt="image-20201001111117707" style="zoom: 67%;" />
+<img src="../image/image-20201003173200498.png" alt="image-20201003173200498" style="zoom:67%;" />
 
 点击下一步时，显示出一个提示窗口。
 
-<img src="../image/image-20201001111349027.png" alt="image-20201001111349027" style="zoom:67%;" />
+<img src="../image/image-20201003173224049.png" alt="image-20201003173224049" style="zoom:67%;" />
 
 点击按钮时，会使换一张图片，同时显示一个加载提示框。当点击返回键时，窗口会退出。
 
-<img src="../image/image-20201001111450786.png" alt="image-20201001111450786" style="zoom:67%;" />
+<img src="../image/image-20201003173302416.png" alt="image-20201003173302416" style="zoom:67%;" />
 
 在输入框中输入字符后，再点击按钮，会显示一个提示框提示出输入的字符。
 
-<img src="../image/image-20201001111730472.png" alt="image-20201001111730472" style="zoom:67%;" />
+<img src="../image/image-20201003173404039.png" alt="image-20201003173404039" style="zoom:67%;" />
 
 ### 四、实验收获
 
