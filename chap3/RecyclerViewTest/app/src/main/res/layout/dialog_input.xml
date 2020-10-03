@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
@@ -7,21 +8,27 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
+        style="@android:style/Widget.DeviceDefault.Light.TextView"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        android:text="修改汽车LOGO名称"/>
+        android:text="修改汽车LOGO名称"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:autoSizeTextType="none"
+        app:drawableTint="#8BC34A"
+        app:drawableTintMode="src_over"
+        app:fontFamily="sans-serif" />
 
     <EditText
         android:id="@+id/id_txt_username"
-        android:layout_width="match_parent"
+        android:layout_width="374dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
         android:hint="输入新的名字"
         android:inputType="textEmailAddress" />
 
