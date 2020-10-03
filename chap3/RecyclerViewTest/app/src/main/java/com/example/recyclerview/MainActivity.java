@@ -1,6 +1,7 @@
 package com.example.recyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -8,7 +9,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -82,7 +86,28 @@ public  class MainActivity extends AppCompatActivity{
         return builder.toString();
     }
 
-    public void showDialog(View view){
+    public void showDialog123(final View view){
+        final EditText inputServer = new EditText(MainActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("修改汽车LOGO名字").setIcon(android.R.drawable.ic_dialog_info).setView(inputServer)
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String text = inputServer.getText().toString();
+                final CarLogoAdapter.ViewHolder holder =
+                        new CarLogoAdapter.ViewHolder(view);
+                holder.logoName.setText(text);
+            }
+
+        });
+        builder.show();
+
+        /*
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("这是一个弹窗");
         dialog.setCancelable(false);
@@ -98,7 +123,7 @@ public  class MainActivity extends AppCompatActivity{
 
             }
         });
-        dialog.show();
+        dialog.show();  */
     }
 
 
