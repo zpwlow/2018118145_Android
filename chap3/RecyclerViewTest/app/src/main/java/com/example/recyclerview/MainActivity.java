@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public  class MainActivity extends AppCompatActivity {
+public  class MainActivity extends AppCompatActivity{
 
     private List<CarLogo> carLogoList = new ArrayList<>();
 
@@ -28,9 +30,11 @@ public  class MainActivity extends AppCompatActivity {
         //LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
-        CarLogoAdapter adapter = new CarLogoAdapter(carLogoList,this);
+        CarLogoAdapter adapter = new CarLogoAdapter(carLogoList);
         recyclerView.setAdapter(adapter);
     }
+
+
 
     private void initCarLogo(){
         for(int i=0;i<2;i++){
@@ -78,13 +82,26 @@ public  class MainActivity extends AppCompatActivity {
         return builder.toString();
     }
 
+    public void showDialog(View view){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("这是一个弹窗");
+        dialog.setCancelable(false);
+        dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
 
-    public void showLoginDialog(View view)
-    {
-        InputDialogFragment dialog = new InputDialogFragment();
-        dialog.show(getFragmentManager(), "InputDialog");
+            }
+        });
+        dialog.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
 
+            }
+        });
+        dialog.show();
     }
+
+
 
     public void onLoginInputComplete(String username, String password)
     {
