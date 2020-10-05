@@ -86,7 +86,35 @@ public  class MainActivity extends AppCompatActivity{
         return builder.toString();
     }
 
-    public void showDialog123(final View view){
+
+    public void showEditDialog(View view)
+    {
+        InputDialogFragment editNameDialog = new InputDialogFragment();
+        editNameDialog.show(getFragmentManager(), "EditNameDialog");
+    }
+
+    public void showDialog(final View view){
+        final EditText mUsername;
+        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        LayoutInflater inflater = MainActivity.this.getLayoutInflater();
+        View input_view = inflater.inflate(R.layout.dialog_input,null);
+        mUsername = (EditText) input_view.findViewById(R.id.id_txt_username);
+        builder.setView(input_view)
+                // Add action buttons
+                .setPositiveButton("确定",
+                        new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id)
+                            {
+                                String text = mUsername.getText().toString();
+                                final CarLogoAdapter.ViewHolder holder =
+                                        new CarLogoAdapter.ViewHolder(view);
+                                holder.logoName.setText(text);
+                            }
+                        }).setNegativeButton("取消", null);
+        builder.show();
+        /*
         final EditText inputServer = new EditText(MainActivity.this);
         final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("修改汽车LOGO名字").setIcon(android.R.drawable.ic_dialog_info).setView(inputServer)
@@ -106,6 +134,9 @@ public  class MainActivity extends AppCompatActivity{
 
         });
         builder.show();
+
+
+         */
 
         /*
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
@@ -127,12 +158,6 @@ public  class MainActivity extends AppCompatActivity{
     }
 
 
-
-    public void onLoginInputComplete(String username, String password)
-    {
-        Toast.makeText(this, "帐号：" + username + ",  密码 :" + password,
-                       Toast.LENGTH_SHORT).show();
-    }
 
 
 }
