@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            Toast.makeText(context, "成功接收自定义本地广播！", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "成功接收自定义本地广播！", Toast.LENGTH_SHORT).show();
         }
 
     }
