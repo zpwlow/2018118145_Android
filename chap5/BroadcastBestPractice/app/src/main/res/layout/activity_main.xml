@@ -4,54 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="60sp">
-
-        <TextView
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textSize="18sp"
-            android:text="Account:" />
-        
-        <EditText
-            android:id="@+id/account"
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="60sp">
-
-        <TextView
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textSize="18sp"
-            android:text="Account:" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:inputType="textPassword"/>
-
-    </LinearLayout>
-    
     <Button
-        android:id="@+id/login"
+        android:id="@+id/force_offline"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="登录"/>
-
+        android:layout_height="wrap_content"
+        android:text="发送强制离线广播"/>
 
 </LinearLayout>

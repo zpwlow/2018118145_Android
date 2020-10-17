@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="18sp"
-            android:text="Account:" />
+            android:text="账号:" />
 
         <EditText
             android:id="@+id/account"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="18sp"
-            android:text="Account:" />
+            android:text="密码:" />
 
         <EditText
             android:id="@+id/password"
