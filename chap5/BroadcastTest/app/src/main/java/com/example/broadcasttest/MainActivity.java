@@ -41,14 +41,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent("com.example.broadcasttest.MY_BROADCAST");
                 sendBroadcast(intent);
                 // 发送本地广播
-                intent = new Intent("com.example.broadcasttest.LOCAL_BROADCAST");
-                localBroadcastManager.sendBroadcast(intent);
+                Intent intent2 = new Intent("com.example.broadcasttest.LOCAL_BROADCAST");
+                localBroadcastManager.sendBroadcast(intent2);
             }
         });
         intentFilter = new IntentFilter();
         intentFilter.addAction("com.example.broadcasttest.LOCAL_BROADCAST");
         localReceiver = new LocalReceiver();
         localBroadcastManager.registerReceiver(localReceiver, intentFilter); // 注册本地广播监听器
+
     }
 
     @Override
