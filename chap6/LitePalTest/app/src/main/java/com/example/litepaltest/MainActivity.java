@@ -50,8 +50,16 @@ public class MainActivity extends AppCompatActivity {
                 book.setPrice(19.96);
                 book.setPress("Unknow");
                 book.save();
+
+                /*
                 book.setPrice(10.96);
                 book.save();
+                 */
+
+                book.setPrice(14.95);
+                book.setPress("Anchor");
+                book.updateAll("name = ? and author = ?",
+                        "the Lost Symbol","Dan Brown");
             }
         });
     }
