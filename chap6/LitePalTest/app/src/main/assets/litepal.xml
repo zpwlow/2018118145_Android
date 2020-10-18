@@ -4,5 +4,6 @@
 
     <version value="1" />
     <list>
+        <mapping class = "com.example.litepaltest.Book"></mapping>
     </list>
 </litepal>
