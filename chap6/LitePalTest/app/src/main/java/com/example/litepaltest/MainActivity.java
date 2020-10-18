@@ -11,6 +11,8 @@ import android.widget.Toast;
 import org.litepal.LitePal;
 import org.litepal.crud.DataSupport;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -69,6 +71,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DataSupport.deleteAll(Book.class,"price < ?","15");
+            }
+        });
+
+        Button queryButton = (Button) findViewById(R.id.select_data);
+        queryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<Book> books = DataSupport.findAll(Book.class);
+                for (Book book :books){
+                    Log.d("MainActibity","book name is "+book.getName());
+                    Log.d("MainActibity","book author is "+book.getAuthor());
+                    Log.d("MainActibity","book pages is "+book.getPages());
+                    Log.d("MainActibity","book price is "+book.getPrice());
+                    Log.d("MainActibity","book press is "+book.getPress());
+                }
             }
         });
     }
