@@ -58,5 +58,14 @@ public class MainActivity extends AppCompatActivity {
                         new String[]{"The Da Vinci Code"});
             }
         });
+
+        Button deleteButton = (Button) findViewById(R.id.delete_data);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SQLiteDatabase db = dbhelper.getWritableDatabase();
+                db.delete("Book","pages > ?",new String[]{"500"});
+            }
+        });
     }
 }
