@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dbhelper = new MyDatabaseHelper(this,"BookStore.db",null,1);
+        dbhelper = new MyDatabaseHelper(this,"BookStore.db",null,2);
         Button createbase = (Button) findViewById(R.id.create_database);
         createbase.setOnClickListener(new View.OnClickListener() {
             @Override
