@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
         WebView webView = (WebView)findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
-        webView.loadUrl("http://baidu.com");
+        webView.loadUrl("http://www.baidu.com");
     }
 }
