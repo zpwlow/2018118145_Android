@@ -44,22 +44,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 BufferedReader reader = null;
                 try{
                     URL url = new URL("https://www.baidu.com");
-                    connection = (HttpURLConnection)url.openConnection();
+                    connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setConnectTimeout(8000);
                     connection.setReadTimeout(8000);
                     InputStream in = connection.getInputStream();
                     reader = new BufferedReader(new InputStreamReader(in));
-                    StringBuilder reponse = new StringBuilder();
+                    StringBuilder response = new StringBuilder();
                     String line;
                     while ((line = reader.readLine()) != null){
-                        reponse.append(line);
+                        response.append(line);
                     }
+                    showResponse(response.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }finally {
                     if(reader != null){
-                        try{reader.close();
+                        try{
+                            reader.close();
                         }catch (IOException e){
                             e.printStackTrace();
                         }
