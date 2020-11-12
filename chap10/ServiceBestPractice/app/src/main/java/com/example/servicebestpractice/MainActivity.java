@@ -60,8 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         switch (v.getId()){
             case R.id.start_download:
-                String url = "https://raw.githubusercontent.com/guolindev/" +
-                        "eclipse/master/eclipse-inst-win64.exe";
+                String url = "https://d1.music.126.net/dmusic/cloudmusicsetup2.7.4.198374.exe";
                 downloadBinder.startDownload(url);
                 break;
             case R.id.pause_download:
