@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
 
     private MyDatabaseHelper dbhelper;
 
+    private String newId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         addData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 SQLiteDatabase db  = dbhelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put("name","The Da Vinci Code");
@@ -44,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 values.put("author","Dan Browm");
                 values.put("pages",510);
                 values.put("price",19.95);
-                db.insert("Book",null,values);
+                db.insert("Book",null,values);  */
+
 
             }
         });

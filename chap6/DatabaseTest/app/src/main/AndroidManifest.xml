@@ -13,7 +13,7 @@
             android:name=".DatabaseProvider"
             android:authorities="com.example.databasetest.provider"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>
