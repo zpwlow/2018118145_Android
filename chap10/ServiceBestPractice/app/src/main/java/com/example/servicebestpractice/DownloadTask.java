@@ -36,10 +36,10 @@ public class DownloadTask extends AsyncTask<String,Integer,Integer> {
         try{
             long downloadedLength = 0; //记录已下载的文件长度。
             String downloadUrl = params[0];
-            String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));
-            String directory = Environment
-                    .getExternalStorageDirectory(Environment.DIRECTORY_DOWNLOADS)
-                    .getPath();
+            String fileName = downloadUrl.
+                    substring(downloadUrl.lastIndexOf("/"));
+            String directory = Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_DOWNLOADS).getPath();
             file = new File(directory + fileName);
             if (file.exists()){
                 downloadedLength = file.length();
