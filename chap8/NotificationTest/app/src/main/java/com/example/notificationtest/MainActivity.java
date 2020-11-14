@@ -7,6 +7,8 @@ import androidx.core.app.NotificationCompat;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.send_notice:
+                Intent intent = new Intent(this,NotificationActivity.class);
+                PendingIntent pi = PendingIntent.getActivity(this,0,intent,0);
                 String CHANNEL_ONE_ID = "com.primedu.cn";
                 String CHANNEL_ONE_NAME = "Channel One";
                 NotificationChannel notificationChannel = null;
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setLargeIcon(BitmapFactory.decodeResource(getResources()
                                 ,R.mipmap.ic_launcher))
+                        .setContentIntent(pi)
                         .build();
                 manager.notify(1,notification);
                 break;
