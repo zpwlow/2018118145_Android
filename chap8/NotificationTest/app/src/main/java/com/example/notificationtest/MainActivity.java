@@ -11,12 +11,14 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import java.io.BufferedReader;
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -58,7 +60,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setLargeIcon(BitmapFactory.decodeResource(getResources()
                                 ,R.mipmap.ic_launcher))
+                        .setSound(Uri.fromFile(new
+                                File("/system/media/audio/ringtones/Luna.ogg"))) //响铃
+                        .setVibrate(new long[]{0,1000,1000,1000})  //震动一秒，静止一秒
+                        .setLights(Color.GREEN,1000,1000) //LED灯绿色闪动
+                        .setDefaults(NotificationCompat.DEFAULT_ALL) //根据手机环境播放铃声
                         .setContentIntent(pi)
+                        .setAutoCancel(true)
                         .build();
                 manager.notify(1,notification);
                 break;
