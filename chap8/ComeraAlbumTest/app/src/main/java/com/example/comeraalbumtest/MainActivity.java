@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //创建File对象，用于存储拍照后的照片
-                File outputImage = new File(getExternalCacheDir(),"output_image.jpg");
+                File outputImage = new File(getExternalCacheDir(),
+                        "output_image.jpg");
                 try{
                     if (outputImage.exists()){
                         outputImage.delete();
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (Build.VERSION.SDK_INT >= 24){
                     imageUri = FileProvider.getUriForFile(MainActivity.this,
-                            "com.example.cameraalbumtest.fileprovider",outputImage);
+                            "com.example.cameraalbumtest.fileprovider"
+                            ,outputImage);
                 }else {
                     imageUri = Uri.fromFile(outputImage);
                 }
@@ -59,14 +61,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode,int resultCode,Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case TAKE_PHOTO:
                 if (requestCode == RESULT_OK) {
                     try {
                         //将拍摄的照片显示出来
                         Bitmap bitmap = BitmapFactory.
-                                decodeStream(getContentResolver().openInputStream(imageUri));
+                                decodeStream(getContentResolver()
+                                        .openInputStream(imageUri));
+                        picture.setImageBitmap(bitmap);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
