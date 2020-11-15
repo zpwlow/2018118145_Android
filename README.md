@@ -25,6 +25,14 @@
 
 
 
+实验四的项目位置：[这里](https://github.com/zpwlow/2018118145_Android/tree/master/chap2/Activity)
+
+
+
+实验四的文档位置：[这里](https://github.com/zpwlow/2018118145_Android/blob/master/chap2/Activity/Intent%E7%9A%84%E5%BA%94%E7%94%A8.md)
+
+
+
 实验五的项目位置：[这里](https://github.com/zpwlow/2018118145_Android/tree/master/chap3/UIWindowTest)
 
 
