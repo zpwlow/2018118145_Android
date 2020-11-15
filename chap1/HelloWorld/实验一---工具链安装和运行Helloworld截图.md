@@ -72,7 +72,17 @@ Typora软件下载地址：https://typora.io/
 
 ![image-20201115173251075](../image/image-20201115173251075.png)
 
-### 4、Android Studio
+### 4、Git
+
+Git软件下载地址：https://git-scm.com/downloads
+
+下载并安装Git:
+
+![image-20201115200247786](../image/image-20201115200247786.png)
+
+### 5、Android Studio
+
+软件下载地址：https://developer.android.google.cn/studio?hl=zh-cn
 
 安装的过程如下图的顺序。
 
@@ -103,8 +113,6 @@ Typora软件下载地址：https://typora.io/
 ![img](../image/wps25.jpg) 
 
 ![img](../image/wps26.jpg) 
-
-C:\Users\zpw\AppData\Local\Android\Sdk
 
 ![img](../image/wps27.jpg) 
 
