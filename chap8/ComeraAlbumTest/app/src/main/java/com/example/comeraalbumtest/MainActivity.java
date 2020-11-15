@@ -10,6 +10,7 @@ import android.annotation.TargetApi;
 import android.content.ContentUris;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -150,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
             //如果时document 类型的Uri,则通过document id处理
             String docId = DocumentsContract.getDocumentId(uri);
             if("com.android.providers.meida.documents".equals(uri.getAuthority())){
-                String id = docId.split(":")[1] //解析出数字格式的id
+                String id = docId.split(":")[1]; //解析出数字格式的id
                 String selection = MediaStore.Images.Media._ID + "=" +id;
                 imagePath = getImagePath(MediaStore.Images
                         .Media.EXTERNAL_CONTENT_URI,selection);
@@ -169,5 +170,37 @@ public class MainActivity extends AppCompatActivity {
             imagePath = uri.getPath();
         }
         displayImage(imagePath);//根据图片路径显示图片
+    }
+
+
+    private void handleImageBoforeKitKat(Intent data){
+        Uri uri = data.getData();
+        String imagePath = getImagePath(uri,null);
+        displayImage(imagePath);
+    }
+
+    private String getImagePath(Uri uri,String selection){
+        String path = null;
+        //通过Uri 和 selection 来获取真实的图片路径
+        Cursor cursor = getContentResolver().query(uri,null,
+                selection,null,null);
+        if (cursor != null){
+            if (cursor.moveToFirst()){
+                path = cursor.getString(cursor
+                        .getColumnIndex(MediaStore.Images.Media.DATA));
+            }
+            cursor.close();
+        }
+        return path;
+    }
+
+    private void displayImage(String imagePath){
+        if (imagePath != null){
+            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
+            picture.setImageBitmap(bitmap);
+        }else {
+            Toast.makeText(this,"failed to get image"
+                    ,Toast.LENGTH_SHORT).show();
+        }
     }
 }
