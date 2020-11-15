@@ -30,3 +30,11 @@
 
 
 实验四的文档位置：[这里](https://github.com/zpwlow/2018118145_Android/blob/master/chap3/RecyclerViewTest/%E5%AE%9E%E9%AA%8C%E5%9B%9B--RecyclerView%E6%BB%9A%E5%8A%A8%E6%8E%A7%E4%BB%B6.md)
+
+
+
+实验五的项目位置：[这里](https://github.com/zpwlow/2018118145_Android/tree/master/chap5/BroadcastBestPractice)
+
+
+
+实验五的文档位置：[这里](https://github.com/zpwlow/2018118145_Android/blob/master/chap5/BroadcastBestPractice/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B9%BF%E6%92%AD.md)
