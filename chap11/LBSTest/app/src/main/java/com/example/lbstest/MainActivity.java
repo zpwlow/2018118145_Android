@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.map.BaiduMap;
 
 import java.util.ArrayList;
@@ -57,7 +58,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestLocation(){
+        initLocation();
         mLocationClient.start();
+    }
+
+    private void initLocation(){
+        LocationClientOption option = new LocationClientOption();
+        option.setScanSpan(5000);
+        mLocationClient.setLocOption(option);
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        mLocationClient.stop();
     }
 
     @Override
