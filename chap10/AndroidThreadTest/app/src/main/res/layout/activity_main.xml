@@ -7,7 +7,19 @@
         android:id="@+id/change_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Change Text"/>
+        android:text="子线程发送消息给UI"/>
+
+    <Button
+        android:id="@+id/send_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UI发消息给子线程"/>
+
+    <Button
+        android:id="@+id/thread_send_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="子线程发送消息给子线程"/>
 
     <TextView
         android:id="@+id/text"
