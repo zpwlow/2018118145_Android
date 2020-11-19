@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final int UPDATE_TEXT = 1;
@@ -43,10 +45,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         text = (TextView) findViewById(R.id.text);
         Button changeText = (Button) findViewById(R.id.change_text);
+        Button sendText = (Button) findViewById(R.id.send_text);
+        Button threadSendText = (Button) findViewById(R.id.thread_send_text);
+        new MyThread2().start();
         changeText.setOnClickListener(this);
+        sendText.setOnClickListener(this);
+        threadSendText.setOnClickListener(this);
     }
 
-    class MyTheard2 extends Thread {
+    class MyThread2 extends Thread {
 
         @Override
         public void run() {
@@ -64,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     switch (msg.what) {
                         case 1:
                             Log.d("MyThread2","Thread id is "+Thread.currentThread().getId());
-                            Log.d("MyThread2", "接受的消息为"+msg.obj.toString());
+                            Log.d("MyThread2","收到的消息为："+ msg.obj.toString());
                             break;
                     }
                 }
@@ -76,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    class MyTheard3 extends Thread {
+    class MyThread3 extends Thread {
 
         @Override
         public void run() {
@@ -90,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     switch (msg.what) {
                         case 1:
                             Log.d("MyThread3","Thread id is "+Thread.currentThread().getId());
-                            Log.d("MyThread3", "接受的消息为"+msg.obj.toString());
+                            Log.d("MyThread3","收到的消息为："+ msg.obj.toString());
                             break;
                     }
                 }
@@ -127,6 +134,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }).start();
                 break;
+            case R.id.send_text:
+                Log.d("MainActivity","Thread id is "+Thread.currentThread().getId());
+                Log.d("MainActivity","发送的消息为： 你好，线程二, 我是UI");
+                mHandler2.obtainMessage(1, "你好，线程二, 我是UI").sendToTarget();
+                break;
+            case R.id.thread_send_text:
+                new MyThread3().start();
+                new MyThread4().start();
             default:
                 break;
         }
