@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +15,10 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final int UPDATE_TEXT = 1;
+
+    private Handler mHandler2;
+
+    private Handler mHandler3;
 
     private TextView text;
 
@@ -23,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (msg.what){
                 case UPDATE_TEXT:
                     //在这里可以进行UI操作
-                    text.setText("Nice to meet you");
+                    text.setText(msg.getData().getString("msg"));
                     break;
                 default:
                     break;
@@ -40,6 +46,71 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         changeText.setOnClickListener(this);
     }
 
+    class MyTheard2 extends Thread {
+
+        @Override
+        public void run() {
+            super.run();
+
+            //1.init Looper
+            Looper.prepare();
+
+            //2.init Handler
+            mHandler2 = new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    super.handleMessage(msg);
+
+                    switch (msg.what) {
+                        case 1:
+                            Log.d("MyThread2","Thread id is "+Thread.currentThread().getId());
+                            Log.d("MyThread2", "接受的消息为"+msg.obj.toString());
+                            break;
+                    }
+                }
+            };
+
+            //3.Looper start loop
+            Looper.loop();
+        }
+    }
+
+
+    class MyTheard3 extends Thread {
+
+        @Override
+        public void run() {
+            super.run();
+
+            Looper.prepare();
+            mHandler3 = new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    super.handleMessage(msg);
+                    switch (msg.what) {
+                        case 1:
+                            Log.d("MyThread3","Thread id is "+Thread.currentThread().getId());
+                            Log.d("MyThread3", "接受的消息为"+msg.obj.toString());
+                            break;
+                    }
+                }
+            };
+            Looper.loop();
+        }
+    }
+
+    class MyThread4 extends Thread {
+
+        @Override
+        public void run() {
+            super.run();
+            Log.d("MyThread4","Thread id is "+Thread.currentThread().getId());
+            Log.d("MyThread4","发送的消息为： 你好，线程三，我是线程四");
+            mHandler3.obtainMessage(1, "你好，线程三，我是线程四").sendToTarget();
+        }
+    }
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -48,7 +119,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         Message message = new Message();
+                        Bundle data = new Bundle();
+                        data.putString("msg", "你好，我是线程一");
                         message.what = UPDATE_TEXT;
+                        message.setData(data);
                         handler.sendMessage(message);//将Message对象发送出去
                     }
                 }).start();
@@ -58,3 +132,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
+
+
+
