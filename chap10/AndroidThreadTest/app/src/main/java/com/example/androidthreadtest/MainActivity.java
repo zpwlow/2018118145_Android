@@ -54,29 +54,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     class MyThread2 extends Thread {
-
         @Override
         public void run() {
             super.run();
-
             //1.init Looper
             Looper.prepare();
-
             //2.init Handler
             mHandler2 = new Handler() {
                 @Override
                 public void handleMessage(Message msg) {
                     super.handleMessage(msg);
-
                     switch (msg.what) {
                         case 1:
-                            Log.d("MyThread2","Thread id is "+Thread.currentThread().getId());
-                            Log.d("MyThread2","收到的消息为："+ msg.obj.toString());
+                            Log.d("MyThread2","Thread id is "
+                                    +Thread.currentThread().getId());
+                            Log.d("MyThread2","收到的消息为："
+                                    + msg.obj.toString());
                             break;
                     }
                 }
             };
-
             //3.Looper start loop
             Looper.loop();
         }
@@ -84,11 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     class MyThread3 extends Thread {
-
         @Override
         public void run() {
             super.run();
-
             Looper.prepare();
             mHandler3 = new Handler() {
                 @Override
@@ -96,8 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     super.handleMessage(msg);
                     switch (msg.what) {
                         case 1:
-                            Log.d("MyThread3","Thread id is "+Thread.currentThread().getId());
-                            Log.d("MyThread3","收到的消息为："+ msg.obj.toString());
+                            Log.d("MyThread3","Thread id is "
+                                    +Thread.currentThread().getId());
+                            Log.d("MyThread3","收到的消息为："
+                                    + msg.obj.toString());
                             break;
                     }
                 }
@@ -107,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     class MyThread4 extends Thread {
-
         @Override
         public void run() {
             super.run();
