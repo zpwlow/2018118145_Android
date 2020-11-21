@@ -39,14 +39,13 @@ public class MyAsyncTask extends AsyncTask<Integer,Integer,String>
 
 
     //在doBackground方法中,每次调用publishProgress方法都会触发该方法
-    //运行在UI线程中,可对UI控件进行操作
-
-
+    //运行在UI线程中,可对UI控件进行操作，利用参数对界面元素进行相应的更新
     @Override
     protected void onProgressUpdate(Integer... values) {
         int value = values[0];
         progressBar.setProgress(value);
     }
+    
 }
 
 
