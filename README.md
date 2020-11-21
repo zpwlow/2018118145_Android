@@ -104,3 +104,14 @@ recyclerView 在表格型数据处理中的应用
 
 文档位置：[这里](https://github.com/zpwlow/2018118145_Android/blob/master/chap10/AndroidThreadTest/%E5%AE%9E%E9%AA%8C%E4%B8%80---%E5%AD%90%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84-%E6%B6%88%E6%81%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6-%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2.md)
 
+
+
+### 实验二
+
+异步任务的隐含子线程程序框架
+
+
+
+项目位置： [这里](https://github.com/zpwlow/2018118145_Android/tree/master/chap10/AsyncTaskTest)
+
+文档位置： [这里](https://github.com/zpwlow/2018118145_Android/blob/master/chap10/AsyncTaskTest/%E5%AE%9E%E9%AA%8C%E4%BA%8C--%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E7%9A%84%E9%9A%90%E5%90%AB%E5%AD%90%E7%BA%BF%E7%A8%8B%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6.md)

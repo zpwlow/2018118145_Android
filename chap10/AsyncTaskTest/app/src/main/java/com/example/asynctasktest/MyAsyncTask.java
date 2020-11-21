@@ -45,7 +45,7 @@ public class MyAsyncTask extends AsyncTask<Integer,Integer,String>
         int value = values[0];
         progressBar.setProgress(value);
     }
-    
+
 }
 
 
