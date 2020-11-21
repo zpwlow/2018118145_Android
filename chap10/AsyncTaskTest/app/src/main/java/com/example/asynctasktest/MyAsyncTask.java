@@ -34,7 +34,7 @@ public class MyAsyncTask extends AsyncTask<Integer,Integer,String>
     //该方法运行在UI线程中,可对UI控件进行设置
     @Override
     protected void onPreExecute() {
-        textView.setText("开始执行异步线程~");
+        textView.setText("开始执行异步线程任务~");
     }
 
 
