@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme = "@style/ThemeOverlay.AppCompat.Light"
-        />
+        app:popupTheme = "@style/ThemeOverlay.AppCompat.Light" />
 
 
 </FrameLayout>
