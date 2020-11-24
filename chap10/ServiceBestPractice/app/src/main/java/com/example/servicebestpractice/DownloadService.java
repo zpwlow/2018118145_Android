@@ -27,6 +27,7 @@ public class DownloadService extends Service {
         @Override
         public void onProgress(int progress) {
             getNotificationManager().notify(1,getNotification("Downloading...",progress));
+            //startForeground(1,getNotification("Downloading...",progress));
         }
 
         @Override
@@ -35,6 +36,7 @@ public class DownloadService extends Service {
             //下载成功时将前台服务通知关闭，并创建一个下载成功的通知。
             stopForeground(true);
             getNotificationManager().notify(1,getNotification("Download Success",-1));
+            //startForeground(1,getNotification("Download Success",-1));
             Toast.makeText(DownloadService.this,"Download Success",
                     Toast.LENGTH_SHORT).show();
         }
@@ -44,8 +46,8 @@ public class DownloadService extends Service {
             downloadTask = null;
             //下载失败时将前台服务通知关闭，并创建一个下载失败的通知
             stopForeground(true);
-            getNotificationManager().notify(1,
-                    getNotification("Download Failed",-1));
+            getNotificationManager().notify(1,getNotification("Download Failed",-1));
+            //startForeground(1,getNotification("Download Failed",-1));
             Toast.makeText(DownloadService.this,
                     "Download Failed",Toast.LENGTH_SHORT).show();
         }
@@ -155,6 +157,8 @@ public class DownloadService extends Service {
                 decodeResource(getResources(),R.mipmap.ic_launcher));
         builder.setContentIntent(pi);
         builder.setContentTitle(title);
+
+
         if (progress >= 0){
             //当 progress 大于或者等于0时才需显示下载进度
             builder.setContentText(progress + "%");
