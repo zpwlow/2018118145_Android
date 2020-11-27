@@ -19,7 +19,7 @@
             app:popupTheme = "@style/ThemeOverlay.AppCompat.Light" />
     </FrameLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
