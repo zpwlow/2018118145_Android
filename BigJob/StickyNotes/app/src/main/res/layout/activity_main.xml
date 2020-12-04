@@ -59,18 +59,16 @@
             app:navGraph="@navigation/mobile_navigation"
             />
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navDrawer"
+        android:id="@+id/mainNav"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/main_drawer" />
+        app:headerLayout="@layout/header_nav"
+        app:menu="@menu/main_nav_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
