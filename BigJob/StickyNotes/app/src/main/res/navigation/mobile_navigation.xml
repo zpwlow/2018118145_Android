@@ -15,7 +15,8 @@
         android:id="@+id/todoFragment"
         android:name="com.example.stickynotes.ui.todolist.TodoFragment"
         android:label="待办"
-        tools:layout="@layout/todo_fragment" />
+        tools:layout="@layout/fragment_todo" />
+
     <fragment
         android:id="@+id/note"
         android:name="com.example.stickynotes.ui.note.note"
