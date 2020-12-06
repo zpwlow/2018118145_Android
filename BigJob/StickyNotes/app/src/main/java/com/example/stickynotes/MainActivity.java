@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+
         //修改头像0-boy 1-girl
         circleImageView = header.findViewById(R.id.icon_image);
         circleImageView.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 final AlertDialog dialog = builder.create();
                 //设置对话框布局
                 View dialogView = View.inflate(MainActivity.this,
-                        R.layout.profilechoose, null);
+                        R.layout.edit_image, null);
                 dialog.setView(dialogView);
                 dialog.show();
                 boy = dialogView.findViewById(R.id.boy);
@@ -189,8 +190,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
         mutableLiveData.observe(this, new Observer<List<UserInfo>>() {
             @Override
             public void onChanged(List<UserInfo> userInfos) {
@@ -208,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
         switch(profile){
             case "0":return R.drawable.boy;
             case "1":return R.drawable.girl;
-            default:return R.drawable.girl;
+            default:return R.drawable.profile;
         }
     }
 
