@@ -53,7 +53,7 @@
         android:id="@+id/todoBook"
         android:name="com.example.stickynotes.ui.todobook.TodoBookFragment"
         android:label="计划本"
-        tools:layout="@layout/todo_book_fragment" >
+        tools:layout="@layout/fragment_todo_book" >
         <action
             android:id="@+id/action_todoBook_to_todoFragment"
             app:destination="@id/todoFragment" />
@@ -63,7 +63,7 @@
         android:id="@+id/editNote"
         android:name="com.example.stickynotes.ui.editnote.EditNote"
         android:label="编辑"
-        tools:layout="@layout/edit_note_fragment">
+        tools:layout="@layout/fragment_edit_note">
         <action
             android:id="@+id/action_editNote_to_note"
             app:destination="@id/note" />
