@@ -21,30 +21,34 @@
         android:id="@+id/note"
         android:name="com.example.stickynotes.ui.note.note"
         android:label="便签"
-        tools:layout="@layout/note_fragment" >
+        tools:layout="@layout/fragment_note" >
         <action
             android:id="@+id/action_note_to_editNote"
             app:destination="@id/editNote" />
     </fragment>
+
     <fragment
         android:id="@+id/devInfo"
         android:name="com.example.stickynotes.ui.devinfo.DevinfoFragment"
         android:label="开发者"
-        tools:layout="@layout/devinfo_fragment" />
+        tools:layout="@layout/fragment_devinfo" />
+
     <fragment
         android:id="@+id/logRec"
         android:name="com.example.stickynotes.ui.logrecord.LogRecFragment"
         android:label="记录"
-        tools:layout="@layout/log_rec_fragment" />
+        tools:layout="@layout/fragment_log_rec" />
+
     <fragment
         android:id="@+id/noteBook"
         android:name="com.example.stickynotes.ui.notebook.NoteBookFragment"
         android:label="便签簿"
-        tools:layout="@layout/note_book_fragment" >
+        tools:layout="@layout/fragment_note_book" >
         <action
             android:id="@+id/action_noteBook_to_note"
             app:destination="@id/note" />
     </fragment>
+
     <fragment
         android:id="@+id/todoBook"
         android:name="com.example.stickynotes.ui.todobook.TodoBookFragment"
@@ -64,5 +68,7 @@
             android:id="@+id/action_editNote_to_note"
             app:destination="@id/note" />
     </fragment>
+
+
 
 </navigation>

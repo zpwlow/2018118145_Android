@@ -77,7 +77,8 @@ public class TodoFragment extends Fragment {
         //切换spinner时候切换数据
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
                 mViewModel.updateTodo(spinner.getSelectedItem().toString());
                 mViewModel.updateDone(spinner.getSelectedItem().toString());
                 todoBookViewModel.getChoseBook().postValue(spinner.getSelectedItem().toString());
@@ -98,7 +99,7 @@ public class TodoFragment extends Fragment {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 final AlertDialog dialog = builder.create();
                 //设置对话框布局
-                View dialogView = View.inflate(getActivity(), R.layout.addtodo, null);
+                View dialogView = View.inflate(getActivity(), R.layout.add_todo, null);
                 dialog.setView(dialogView);
                 dialog.show();
                 todoeditY = dialogView.findViewById(R.id.todoAddOk);
@@ -158,7 +159,8 @@ public class TodoFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item,
+        arrayAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item,
                 mViewModel.
                         getTodoBook());
         spinner.setAdapter(arrayAdapter);
