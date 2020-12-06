@@ -1,6 +1,8 @@
 package com.example.stickynotes.model;
 
-public class Note {
+import org.litepal.crud.DataSupport;
+
+public class Note extends DataSupport {
     private int id;
     private  String content;  //内容
     private  String notename; //便签名
