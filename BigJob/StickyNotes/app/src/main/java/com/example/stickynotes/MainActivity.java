@@ -84,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
         View header = navigationView.getHeaderView(0);
         //设置昵称
         userName = header.findViewById(R.id.userName);
-        userName.setOnLongClickListener(new View.OnLongClickListener() {
+        userName.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 AlertDialog.Builder builder = new
                         AlertDialog.Builder(MainActivity.this);
                 final AlertDialog dialog = builder.create();
@@ -114,15 +114,13 @@ public class MainActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-
-                return false;
             }
         });
         //设置个性签名
         userSaying = header.findViewById(R.id.userSay);
-        userSaying.setOnLongClickListener(new View.OnLongClickListener() {
+        userSaying.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 AlertDialog.Builder builder = new
                         AlertDialog.Builder(MainActivity.this);
                 final AlertDialog dialog = builder.create();
@@ -150,15 +148,13 @@ public class MainActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-
-                return false;
             }
         });
         //修改头像0-boy 1-girl
         circleImageView = header.findViewById(R.id.icon_image);
-        circleImageView.setOnLongClickListener(new View.OnLongClickListener() {
+        circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 final AlertDialog dialog = builder.create();
                 //设置对话框布局
@@ -189,8 +185,6 @@ public class MainActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-
-                return false;
             }
         });
 
