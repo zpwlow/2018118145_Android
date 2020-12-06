@@ -2,7 +2,6 @@ package com.example.stickynotes;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,10 +9,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.arch.core.executor.DefaultTaskExecutor;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
@@ -23,13 +20,10 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.stickynotes.model.Dbservice;
-import com.example.stickynotes.model.Note;
-import com.example.stickynotes.model.NoteBook;
 import com.example.stickynotes.model.UserInfo;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import org.litepal.LitePal;
 import org.litepal.crud.DataSupport;
 
 import java.util.List;
@@ -67,34 +61,38 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.container);
-        NavigationView navigationView = findViewById(R.id.navDrawer
-        );
+        NavigationView navigationView = findViewById(R.id.mainNav);
 
         navigationView.setItemIconTintList(null);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // 将每个菜单ID作为一组ID传递
         // 因为每个菜单应被视为顶级目的地。
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(this,
+                R.id.nav_host_fragment);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 navController.getGraph())
                 .setDrawerLayout(drawer)
                 .build();
 
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupActionBarWithNavController(this,
+                navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
         NavigationUI.setupWithNavController(navigationView, navController);
 
         //设置修改个人信息
         View header = navigationView.getHeaderView(0);
+        //设置昵称
         userName = header.findViewById(R.id.userName);
         userName.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder builder = new
+                        AlertDialog.Builder(MainActivity.this);
                 final AlertDialog dialog = builder.create();
                 //设置对话框布局
-                View dialogView = View.inflate(MainActivity.this, R.layout.edit_info, null);
+                View dialogView = View.inflate(MainActivity.this,
+                        R.layout.edit_name, null);
                 dialog.setView(dialogView);
                 dialog.show();
                 editInfo =dialogView.findViewById(R.id.infoEdit);
@@ -120,14 +118,17 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        //设置个性签名
         userSaying = header.findViewById(R.id.userSay);
         userSaying.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder builder = new
+                        AlertDialog.Builder(MainActivity.this);
                 final AlertDialog dialog = builder.create();
                 //设置对话框布局
-                View dialogView = View.inflate(MainActivity.this, R.layout.edit_say, null);
+                View dialogView = View.inflate(MainActivity.this,
+                        R.layout.edit_say, null);
                 dialog.setView(dialogView);
                 dialog.show();
                 editInfo =dialogView.findViewById(R.id.infoEdit);
@@ -153,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        //修改头像0boy 1girl
+        //修改头像0-boy 1-girl
         circleImageView = header.findViewById(R.id.icon_image);
         circleImageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -161,7 +162,8 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 final AlertDialog dialog = builder.create();
                 //设置对话框布局
-                View dialogView = View.inflate(MainActivity.this, R.layout.profilechoose, null);
+                View dialogView = View.inflate(MainActivity.this,
+                        R.layout.profilechoose, null);
                 dialog.setView(dialogView);
                 dialog.show();
                 boy = dialogView.findViewById(R.id.boy);
@@ -220,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // 膨胀菜单； 这会将项目添加到操作栏（如果有）。
-        getMenuInflater().inflate(R.menu.toolhead, menu);
+        getMenuInflater().inflate(R.menu.toolbar_head, menu);
 
         return true;
     }
@@ -237,7 +239,8 @@ public class MainActivity extends AppCompatActivity {
     //若是通过toolbar创建的菜单可以通过重写该方法获得导航
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(this,
+                R.id.nav_host_fragment);
         return NavigationUI.onNavDestinationSelected(item, navController)
                 || super.onOptionsItemSelected(item);
     }

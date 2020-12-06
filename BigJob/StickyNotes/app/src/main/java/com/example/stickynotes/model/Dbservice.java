@@ -50,7 +50,7 @@ public class Dbservice {
             UserInfo userInfo = new UserInfo();
             userInfo.setSaying("low(@_@)");
             userInfo.setName("Mr. Zhong");
-            userInfo.setProfile("1.0");
+            userInfo.setProfile("1");
             userInfo.save();
 
         }
