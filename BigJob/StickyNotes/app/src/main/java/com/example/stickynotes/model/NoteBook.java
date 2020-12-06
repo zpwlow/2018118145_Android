@@ -2,7 +2,7 @@ package com.example.stickynotes.model;
 
 public class NoteBook {
     private  int id;
-    private String bookname;
+    private String bookname;  //便签书名
 
     public int getId() {
         return id;
@@ -12,11 +12,11 @@ public class NoteBook {
         this.id = id;
     }
 
-    public String getBookname() {
+    public String getNotename() {
         return bookname;
     }
 
-    public void setBookname(String bookname) {
+    public void setNotename(String bookname) {
         this.bookname = bookname;
     }
 }
