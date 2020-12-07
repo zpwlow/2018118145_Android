@@ -19,8 +19,7 @@ public class NoteViewModel extends ViewModel {
     public NoteViewModel() {
         if(notelist==null){
             notelist = new MutableLiveData<>();
-            notelist.postValue(DataSupport.where("bookname=?",
-                    "english").find(Note.class));
+            notelist.postValue(DataSupport.where("bookname=?", "english").find(Note.class));
         }
         if(chooseBook ==null){
             chooseBook = new MutableLiveData<>();

@@ -25,10 +25,8 @@ import com.example.stickynotes.ui.adapter.NoteAdapter;
 import com.example.stickynotes.ui.notebook.NoteBookViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.litepal.crud.DataSupport;
-
 import java.util.List;
-import java.util.Observable;
+
 
 public class note extends Fragment {
     private ArrayAdapter<String> arrayAdapter;
@@ -102,7 +100,8 @@ public class note extends Fragment {
 
         //实现recyclerView
         if (noteAdapter == null) {
-            noteAdapter = new NoteAdapter(mViewModel.getNotelist().getValue(), mViewModel.getNotelist(),
+            noteAdapter = new NoteAdapter(mViewModel.getNotelist().getValue(),
+                    mViewModel.getNotelist(),
                     getActivity());
         }
         recyclerView = view.findViewById(R.id.NoterecyclerView);

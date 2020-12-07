@@ -85,7 +85,7 @@ public class HomeViewModel extends ViewModel {
         }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");// HH:mm:ss
         SimpleDateFormat simpleDateFormatHour = new SimpleDateFormat("HH");
-//获取当前时间
+        //获取当前时间
         Date date = new Date(System.currentTimeMillis());
         OneHome oneHomev = new OneHome();
         oneHomev.setTime(TranNum.transHour(simpleDateFormatHour.format(date)));

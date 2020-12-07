@@ -1,7 +1,6 @@
 package com.example.stickynotes.ui.editnote;
 
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 

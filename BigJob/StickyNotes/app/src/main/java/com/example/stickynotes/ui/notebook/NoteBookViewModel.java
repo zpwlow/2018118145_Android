@@ -15,7 +15,8 @@ public class NoteBookViewModel extends ViewModel {
     MutableLiveData<String> chooseNote;
     public NoteBookViewModel() {
         if(noteBooks==null){
-            noteBooks = new MutableLiveData<>();noteBooks.setValue(DataSupport.findAll(NoteBook.class));
+            noteBooks = new MutableLiveData<>();
+            noteBooks.setValue(DataSupport.findAll(NoteBook.class));
         }
         if(chooseNote==null){
             chooseNote = new MutableLiveData<>();
@@ -30,7 +31,8 @@ public class NoteBookViewModel extends ViewModel {
 
     public MutableLiveData<List<NoteBook>> getNoteBooks() {
         if(noteBooks==null){
-            noteBooks = new MutableLiveData<>(); noteBooks.setValue(DataSupport.findAll(NoteBook.class));
+            noteBooks = new MutableLiveData<>();
+            noteBooks.setValue(DataSupport.findAll(NoteBook.class));
         }
 
         return noteBooks;
