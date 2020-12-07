@@ -8,27 +8,27 @@
     tools:context=".ui.logrecord.LogRecFragment">
 
     <LinearLayout
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="402dp"
+        android:layout_height="609dp"
         android:orientation="vertical"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintHeight_percent="0.90"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-        <CalendarView
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.80"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41000003">
 
+        <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
-            android:focusedMonthDateColor="@color/colorPrimary"
             android:layout_height="wrap_content"
-            />
+            android:focusedMonthDateColor="@color/colorPrimary" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/doneLogRecy"
-            tools:listitem="@layout/item_log"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="264dp"
+            tools:listitem="@layout/item_log">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
