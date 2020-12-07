@@ -19,7 +19,8 @@ public class NoteViewModel extends ViewModel {
     public NoteViewModel() {
         if(notelist==null){
             notelist = new MutableLiveData<>();
-            notelist.postValue(DataSupport.where("bookname=?", "english").find(Note.class));
+            notelist.postValue(DataSupport.where("notename=?",
+                    "english").find(Note.class));
         }
         if(chooseBook ==null){
             chooseBook = new MutableLiveData<>();
@@ -31,7 +32,7 @@ public class NoteViewModel extends ViewModel {
     public MutableLiveData<List<Note>> getNotelist() {
         if(notelist==null){
             notelist = new MutableLiveData<>();
-            notelist.postValue(DataSupport.where("bookname=?",
+            notelist.postValue(DataSupport.where("notename=?",
                     "english").find(Note.class));
         }
 
@@ -55,12 +56,12 @@ public class NoteViewModel extends ViewModel {
     }
 
     public void iniNote() {
-        notelist.postValue(DataSupport.where("bookname=?",
+        notelist.postValue(DataSupport.where("notename=?",
                 "english").find(Note.class));
     }
 
     public void updateNote(String toString) {
-        notelist.postValue(DataSupport.where("bookname=?",
+        notelist.postValue(DataSupport.where("notename=?",
                 toString).find(Note.class));
     }
 
