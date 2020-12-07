@@ -19,6 +19,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.stickynotes.R;
 import com.example.stickynotes.model.Note;
@@ -107,7 +108,10 @@ public class note extends Fragment {
                     getActivity());
         }
         recyclerView = view.findViewById(R.id.NoterecyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(),2));
+        StaggeredGridLayoutManager layoutManager = new
+                StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        //recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(),2));
         recyclerView.setAdapter(noteAdapter);
         mViewModel.getNotelist().observe(getActivity(), new Observer<List<Note>>() {
             @Override
