@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
-    <dbname value = "xiaoMI_db"></dbname>
+    <dbname value = "stickyNote_db"></dbname>
     <version value = "1"></version>
     <list>
         <mapping class = "com.example.stickynotes.model.DoneThing"></mapping>
