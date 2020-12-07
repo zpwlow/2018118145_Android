@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -84,6 +85,7 @@ public class note extends Fragment {
 
         }        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
+
         //切换条目的时候重置notelist值
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -105,9 +107,8 @@ public class note extends Fragment {
                     getActivity());
         }
         recyclerView = view.findViewById(R.id.NoterecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(),2));
         recyclerView.setAdapter(noteAdapter);
-
         mViewModel.getNotelist().observe(getActivity(), new Observer<List<Note>>() {
             @Override
             public void onChanged(List<Note> notes) {

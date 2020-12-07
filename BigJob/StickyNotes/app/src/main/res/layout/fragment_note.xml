@@ -37,7 +37,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/NoterecyclerView"
         android:layout_height="0dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         tools:listitem="@layout/item_note"
         app:layout_constraintHeight_percent="0.7"
         app:layout_constraintBottom_toBottomOf="parent"
