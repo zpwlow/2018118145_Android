@@ -1,7 +1,6 @@
 package com.example.stickynotes.util;
 
 
-
 public class TranNum {
     public static String transNum(String number) {
         String string = new String();

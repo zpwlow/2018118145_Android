@@ -56,7 +56,8 @@ public class TodoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(requireActivity()).get(TodoViewModel.class);
-        todoBookViewModel = new ViewModelProvider(requireActivity()).get(TodoBookViewModel.class);
+        todoBookViewModel = new ViewModelProvider(requireActivity())
+                .get(TodoBookViewModel.class);
         view = inflater.inflate(R.layout.fragment_todo, container, false);
         return view;
     }
@@ -68,8 +69,9 @@ public class TodoFragment extends Fragment {
         //初始化下拉菜单
         spinner = view.findViewById(R.id.todoBookS);
         if (arrayAdapter == null) {
-            arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, mViewModel.
-                    getTodoBook());
+            arrayAdapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_spinner_item,
+                    mViewModel.getTodoBook());
         }
         spinner.setAdapter(arrayAdapter);
         //切换spinner时候切换数据
@@ -87,7 +89,6 @@ public class TodoFragment extends Fragment {
 
             }
         });
-
 
         //添加todo事件按钮
         addTodo = view.findViewById(R.id.floatingActionButton2);

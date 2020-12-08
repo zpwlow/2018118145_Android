@@ -144,10 +144,6 @@ public class NoteBAdapter extends RecyclerView.Adapter<NoteBAdapter.ViewHolder> 
                 return false;
             }
         });
-
-
-
-
     }
 
     @Override

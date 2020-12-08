@@ -2,7 +2,6 @@ package com.example.stickynotes.model;
 
 import org.litepal.crud.DataSupport;
 
-import java.util.Date;
 
 public class DoneThing extends DataSupport {
     private int id;

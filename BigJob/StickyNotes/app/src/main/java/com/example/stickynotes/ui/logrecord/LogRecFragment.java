@@ -1,9 +1,8 @@
 package com.example.stickynotes.ui.logrecord;
 
-import androidx.lifecycle.MutableLiveData;
+
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -14,18 +13,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 
 import com.example.stickynotes.R;
-import com.example.stickynotes.model.DoneThing;
 import com.example.stickynotes.model.LogDay;
 import com.example.stickynotes.ui.adapter.LogAdapter;
 
-import org.litepal.crud.DataSupport;
 
 import java.text.SimpleDateFormat;
 import java.util.List;

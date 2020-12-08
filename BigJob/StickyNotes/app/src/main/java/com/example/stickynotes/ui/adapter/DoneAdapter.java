@@ -30,9 +30,6 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.ViewHolder> {
     TextView deldteN;
 
 
-
-
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -94,8 +91,6 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.ViewHolder> {
                 return false;
             }
         });
-
-
     }
 
     @Override
@@ -106,7 +101,10 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.ViewHolder> {
         return doneThings.size();
     }
 
-    public DoneAdapter(Context context, MutableLiveData<List<TodoThing>> todoLive, MutableLiveData<List<DoneThing>> donLive, List<DoneThing> doneThings) {
+    public DoneAdapter(Context context,
+                       MutableLiveData<List<TodoThing>> todoLive,
+                       MutableLiveData<List<DoneThing>> donLive,
+                       List<DoneThing> doneThings) {
         this.context = context;
         this.todoLive = todoLive;
         this.donLive = donLive;

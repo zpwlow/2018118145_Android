@@ -26,7 +26,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.litepal.crud.DataSupport;
 
 
-
 public class EditNote extends Fragment {
 
     private ArrayAdapter<String> arrayAdapter;
@@ -56,8 +55,6 @@ public class EditNote extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
 
         //设置下拉菜单
         spinner = view.findViewById(R.id.spinnerNote);
@@ -97,14 +94,12 @@ public class EditNote extends Fragment {
                     NavController navController = Navigation.findNavController(v);
                     navController.navigate(R.id.action_editNote_to_note);
 
-                    mViewModel.saveNote(editText.getText().toString(), spinner.getSelectedItem().toString());
-
+                    mViewModel.saveNote(editText.getText().toString(),
+                            spinner.getSelectedItem().toString());
 
                 }
             });
         }
-
-
     }
 
 }
