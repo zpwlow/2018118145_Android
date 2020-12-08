@@ -13,11 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.stickynotes.R;
 import com.example.stickynotes.databinding.FragmentHomeBinding;
-import com.example.stickynotes.model.Dbservice;
-import com.example.stickynotes.util.TranNum;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class HomeFragment extends Fragment {
 
@@ -29,7 +24,6 @@ public class HomeFragment extends Fragment {
 
         homeViewModel = new ViewModelProvider(requireActivity()).
                 get(HomeViewModel.class);
-
         FragmentHomeBinding binding;
         binding = DataBindingUtil.inflate(inflater,
                 R.layout.fragment_home, container, false);

@@ -58,15 +58,13 @@ public class TodoFragment extends Fragment {
         mViewModel = new ViewModelProvider(requireActivity()).get(TodoViewModel.class);
         todoBookViewModel = new ViewModelProvider(requireActivity()).get(TodoBookViewModel.class);
         view = inflater.inflate(R.layout.fragment_todo, container, false);
-
-
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        Log.i("gong","输出的变化的onActivityCreated");
         //初始化下拉菜单
         spinner = view.findViewById(R.id.todoBookS);
         if (arrayAdapter == null) {
@@ -161,15 +159,13 @@ public class TodoFragment extends Fragment {
         super.onResume();
         arrayAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item,
-                mViewModel.
-                        getTodoBook());
+                mViewModel.getTodoBook());
         spinner.setAdapter(arrayAdapter);
         Log.i("gong","重置spinnerAdapter");
         todoBookViewModel.getChoseBook().observe(requireActivity(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 Log.i("gong","输出的变化的spinner:"+s);
-                Log.i("gong",""+arrayAdapter.getPosition(s));
                 spinner.setSelection(arrayAdapter.getPosition(s),true);
             }
         });

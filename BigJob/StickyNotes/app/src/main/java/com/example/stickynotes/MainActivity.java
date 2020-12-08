@@ -156,7 +156,8 @@ public class MainActivity extends AppCompatActivity {
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder builder = new
+                        AlertDialog.Builder(MainActivity.this);
                 final AlertDialog dialog = builder.create();
                 //设置对话框布局
                 View dialogView = View.inflate(MainActivity.this,

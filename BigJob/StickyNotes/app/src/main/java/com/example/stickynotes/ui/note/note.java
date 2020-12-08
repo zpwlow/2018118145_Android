@@ -83,8 +83,8 @@ public class note extends Fragment {
             arrayAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_spinner_item,
                     mViewModel.getNoteBook());
-
-        }        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        }
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
 
         //切换条目的时候重置notelist值
@@ -127,9 +127,19 @@ public class note extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        mViewModel.iniNote();
-        spinner.setSelection(arrayAdapter.getPosition(noteBookViewModel.getChooseNote().getValue()),true);
-
+        arrayAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item,
+                mViewModel.getNoteBook());
+        spinner.setAdapter(arrayAdapter);
+        //mViewModel.iniNote();
+        //spinner.setSelection(arrayAdapter.getPosition(noteBookViewModel.getChooseNote().getValue()),true);
+        noteBookViewModel.getChooseNote().observe(requireActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                Log.i("gong","输出的变化的spinner:"+s);
+                spinner.setSelection(arrayAdapter.getPosition(s),true);
+            }
+        });
         Log.i("gong","调用了resume的方法");
     }
 }
