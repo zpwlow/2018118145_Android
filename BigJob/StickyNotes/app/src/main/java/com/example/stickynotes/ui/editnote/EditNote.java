@@ -1,7 +1,9 @@
 package com.example.stickynotes.ui.editnote;
 
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +27,8 @@ import com.example.stickynotes.ui.notebook.NoteBookViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.litepal.crud.DataSupport;
+
+import java.util.Objects;
 
 
 public class EditNote extends Fragment {
@@ -78,7 +83,9 @@ public class EditNote extends Fragment {
                         NavController navController = Navigation.findNavController(v);
                         navController.navigate(R.id.action_editNote_to_note);
 
-                        mViewModel.updateNote(editText.getText().toString(),spinner.getSelectedItem().toString(),getArguments().getInt("Noteid"));
+                        mViewModel.updateNote(editText.getText().toString(),
+                                spinner.getSelectedItem().toString(),
+                                getArguments().getInt("Noteid"));
 
 
                     }
@@ -86,7 +93,6 @@ public class EditNote extends Fragment {
             }
         }
         else {
-
             //新建的数据
             ediToNote.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -100,6 +106,18 @@ public class EditNote extends Fragment {
                 }
             });
         }
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        Note note = DataSupport.find(Note.class,getArguments().getInt("Noteid"));
+        if (!editText.getText().toString().equals(note.getContent())) {
+            mViewModel.updateNote(editText.getText().toString(),
+                    spinner.getSelectedItem().toString(),
+                    getArguments().getInt("Noteid"));
+        }
+
     }
 
 }

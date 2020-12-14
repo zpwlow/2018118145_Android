@@ -129,12 +129,9 @@ public class note extends Fragment {
                 android.R.layout.simple_spinner_item,
                 mViewModel.getNoteBook());
         spinner.setAdapter(arrayAdapter);
-        //mViewModel.iniNote();
-        //spinner.setSelection(arrayAdapter.getPosition(noteBookViewModel.getChooseNote().getValue()),true);
         noteBookViewModel.getChooseNote().observe(requireActivity(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                Log.i("gong","输出的变化的spinner:"+s);
                 spinner.setSelection(arrayAdapter.getPosition(s),true);
             }
         });
