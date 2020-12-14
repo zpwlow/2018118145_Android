@@ -6,6 +6,8 @@ public class Note extends DataSupport {
     private int id;
     private  String content;  //内容
     private  String notename; //便签名
+    private  String writetime; //便签写的时间
+
 
     public int getId() {
         return id;
@@ -29,5 +31,12 @@ public class Note extends DataSupport {
 
     public void setNotename(String notename) {
         this.notename = notename;
+    }
+
+    public String getWritetime(){
+        return writetime;
+    }
+    public void setWritetime(String writetime){
+        this.writetime = writetime;
     }
 }
