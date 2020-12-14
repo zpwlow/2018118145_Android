@@ -68,7 +68,6 @@ public class note extends Fragment {
         addNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 NavController navController = Navigation.findNavController(v);
                 navController.navigate(R.id.action_note_to_editNote);
             }

@@ -49,7 +49,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_note,parent,false);
+                .inflate(R.layout.item_note2,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
 
@@ -59,6 +59,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
         holder.textView.setText(noteList.get(position).getContent());
+        holder.textView2.setText(noteList.get(position).getWritetime());
 
         //设置长按删除事件
         holder.textView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -116,9 +117,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
+        TextView textView2;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textView11);
+            textView2 = itemView.findViewById(R.id.timetext);
         }
     }
 }
