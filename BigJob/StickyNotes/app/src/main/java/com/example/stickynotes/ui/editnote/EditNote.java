@@ -118,8 +118,10 @@ public class EditNote extends Fragment {
             }
         }
         else {
-            mViewModel.saveNote(editText.getText().toString(),
-                    spinner.getSelectedItem().toString());
+            if (editText.getText().toString().length()>0){
+                mViewModel.saveNote(editText.getText().toString(),
+                        spinner.getSelectedItem().toString());
+            }
         }
 
 

@@ -61,11 +61,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         String text = noteList.get(position).getContent();
-        int start = (int) getLineMaxNumber(text,20,180);
+        int start = (int) getLineMaxNumber(text,20,170);
         int end = text.length();
         if (end>start) {
             String line = text.substring(0,start);
@@ -75,6 +74,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         }
         else {
             holder.textView1.setText(text);
+            holder.textView.setText("");
         }
         //holder.textView.setText(noteList.get(position).getContent());
         holder.textView2.setText(noteList.get(position).getWritetime());
