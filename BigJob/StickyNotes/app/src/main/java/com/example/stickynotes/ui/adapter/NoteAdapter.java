@@ -2,7 +2,11 @@ package com.example.stickynotes.ui.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Paint;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.MutableLiveData;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -56,10 +61,22 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-
-        holder.textView.setText(noteList.get(position).getContent());
+        String text = noteList.get(position).getContent();
+        int start = (int) getLineMaxNumber(text,20,180);
+        int end = text.length();
+        if (end>start) {
+            String line = text.substring(0,start);
+            holder.textView1.setText(line);
+            String text1 = text.substring(start,end);
+            holder.textView.setText(text1);
+        }
+        else {
+            holder.textView1.setText(text);
+        }
+        //holder.textView.setText(noteList.get(position).getContent());
         holder.textView2.setText(noteList.get(position).getWritetime());
 
         //设置长按删除事件
@@ -116,14 +133,30 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         return noteList.size();
     }
 
+    private float getLineMaxNumber(String text, float size,float maxWidth) {
+        if (null == text || "".equals(text)){
+            return 0;
+        }
+        Paint paint = new Paint();
+        paint.setTextSize(size);
+        //得到文本内容总体长度
+        float textWidth = paint.measureText(text);
+        // textWidth
+        float width = textWidth / text.length();
+        float total = maxWidth / width;
+        return total;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
+        TextView textView1;
         TextView textView2;
         LinearLayout linearLayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textView11);
             textView2 = itemView.findViewById(R.id.timetext);
+            textView1 = itemView.findViewById(R.id.heardtext);
             linearLayout = itemView.findViewById(R.id.linearLayout);
         }
     }
