@@ -7,9 +7,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Layout;
+import android.text.TextPaint;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -67,6 +70,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         int start = (int) getLineMaxNumber(text,20,170);
         int end = text.length();
         if (end>start) {
+            TextPaint tp = holder.textView1.getPaint();
+            tp.setFakeBoldText(true);
             String line = text.substring(0,start);
             holder.textView1.setText(line);
             String text1 = text.substring(start,end);
@@ -124,6 +129,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         });
 
     }
+
+
+
 
     @Override
     public int getItemCount() {
