@@ -23,14 +23,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/todoBookRecy"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="157dp"
+        android:layout_height="645dp"
         android:layout_marginTop="80dp"
-        android:layout_width="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:listitem="@layout/todobook"
         app:layout_constraintHeight_percent="0.70"
-        android:layout_height="0dp">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/todobook">
 
     </androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,14 +23,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/noteBookRecy"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="151dp"
+        android:layout_height="640dp"
         android:layout_marginTop="80dp"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.75"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:listitem="@layout/item_notebook"
-        app:layout_constraintHeight_percent="0.75"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_notebook"></androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>

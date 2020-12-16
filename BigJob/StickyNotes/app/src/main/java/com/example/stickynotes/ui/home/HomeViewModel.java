@@ -11,6 +11,8 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -35,17 +37,24 @@ public class HomeViewModel extends ViewModel {
             public void run() {
                 OkHttpClient okHttpClient = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("https://v1.hitokoto.cn/")
+                        .url("https://abc.mcloc.cn/abc/api/words/")
                         .build();
+                //https://v1.hitokoto.cn/
+                //https://api.xygeng.cn/one/get
+                //https://abc.mcloc.cn/abc/api/words/
                 try {
                     Response response = okHttpClient.newCall(request).execute();
+                    System.out.println(response);
                     String jsondata = response.body().string();
-
-                    Gson gson = new Gson();
-                    One oneN = gson.fromJson(jsondata, One.class);
+                    One oneN = new One();
+                    oneN.setHitokoto(jsondata);
+                    oneN.setFrom("佚名");
+                    /*
                     if (!(oneN.getFrom().matches("[\\u4e00-\\u9fa5]+"))){
                         oneN.setFrom("佚名");
                     }
+
+                     */
                     one.postValue(oneN);
                 } catch (IOException e) {
                     e.printStackTrace();

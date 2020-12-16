@@ -36,15 +36,16 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/NoterecyclerView"
-        android:layout_height="0dp"
-        android:layout_width="wrap_content"
-        tools:listitem="@layout/item_note2"
-        app:layout_constraintHeight_percent="0.7"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/NoteSpinner"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintVertical_bias="0.489"
+        tools:listitem="@layout/item_note2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
