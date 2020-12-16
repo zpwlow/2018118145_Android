@@ -61,7 +61,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        holder.textView.setText(todoThings.get(position).getContent());
+        holder.textView.setText(todoThings.get(todoThings.size()-1-position).getContent());
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,9 +69,9 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.
                 SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("HH:mm");
 
                 DoneThing doneThing = new DoneThing();
-                doneThing.setContent(todoThings.get(position).
+                doneThing.setContent(todoThings.get(todoThings.size()-1-position).
                         getContent());
-                doneThing.setBookName(todoThings.get(position).
+                doneThing.setBookName(todoThings.get(todoThings.size()-1-position).
                         getBookName());
                 Date date = new Date(System.currentTimeMillis());
                 doneThing.setDay(simpleDateFormat.format(date));
@@ -79,19 +79,22 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.
                 doneThing.save();
 
                 LogDay logDay = new LogDay();
-                logDay.setContent(todoThings.get(position).getContent());
-                logDay.setBookName(todoThings.get(position).getBookName());
+                logDay.setContent(todoThings.get(todoThings.size()-1-position).getContent());
+                logDay.setBookName(todoThings.get(todoThings.size()-1-position).getBookName());
                 logDay.setDay(simpleDateFormat.format(date));
                 logDay.setTimeStart(simpleDateFormat2.format(date));
                 logDay.save();
 
 
                 dnoeLive.setValue(DataSupport.where(
-                        "bookName=?",todoThings.get(position).getBookName()
+                        "bookName=?",
+                        todoThings.get(todoThings.size()-1-position).getBookName()
                 ).find(DoneThing.class));
-                DataSupport.delete(TodoThing.class,todoThings.get(position).getId());
-                todoThings.remove(position);todoLive.setValue(todoThings);
-                notifyItemRemoved(position);
+                DataSupport.delete(TodoThing.class,
+                        todoThings.get(todoThings.size()-1-position).getId());
+                todoThings.remove(todoThings.size()-1-position);
+                todoLive.setValue(todoThings);
+                notifyItemRemoved(todoThings.size()-1-position);
 
 
             }
@@ -111,8 +114,9 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.
                 deldteY.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        DataSupport.delete(TodoThing.class,todoThings.get(position).getId());
-                        todoThings.remove(position);
+                        DataSupport.delete(TodoThing.class,
+                                todoThings.get(todoThings.size()-1-position).getId());
+                        todoThings.remove(todoThings.size()-1-position);
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }

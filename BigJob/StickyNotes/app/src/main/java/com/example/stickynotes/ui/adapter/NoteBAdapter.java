@@ -61,11 +61,11 @@ public class NoteBAdapter extends RecyclerView.Adapter<NoteBAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-        holder.textView.setText(noteBooklist.get(position).getNotename());
+        holder.textView.setText(noteBooklist.get(noteBooklist.size()-1-position).getNotename());
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chooseNote.postValue(noteBooklist.get(position).getNotename());
+                chooseNote.postValue(noteBooklist.get(noteBooklist.size()-1-position).getNotename());
                 NavController navController = Navigation.findNavController(v);
                 navController.navigate(R.id.action_noteBook_to_note);
             }
@@ -73,7 +73,7 @@ public class NoteBAdapter extends RecyclerView.Adapter<NoteBAdapter.ViewHolder> 
         holder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if(position==0){
+                if(noteBooklist.size()-1-position==0){
 
                 }else{
 
@@ -89,8 +89,8 @@ public class NoteBAdapter extends RecyclerView.Adapter<NoteBAdapter.ViewHolder> 
                         @Override
                         public void onClick(View v) {
                             DataSupport.delete(NoteBook.class,
-                                    noteBooklist.get(position).getId());
-                            noteBooklist.remove(position);
+                                    noteBooklist.get(noteBooklist.size()-1-position).getId());
+                            noteBooklist.remove(noteBooklist.size()-1-position);
                             notifyDataSetChanged();
                             dialog.dismiss();
                         }
@@ -133,9 +133,10 @@ public class NoteBAdapter extends RecyclerView.Adapter<NoteBAdapter.ViewHolder> 
                         noteBook.setNotename(editInfo.getText().toString());
                         Note note = new Note();
                         note.setNotename(editInfo.getText().toString());
-                        note.updateAll("bookname=?",noteBooklist.get(position).getNotename());
-                        noteBook.update(noteBooklist.get(position).getId());
-                        noteBooklist.get(position).setNotename(editInfo.getText().toString());
+                        note.updateAll("bookname=?",noteBooklist
+                                .get(noteBooklist.size()-1-position).getNotename());
+                        noteBook.update(noteBooklist.get(noteBooklist.size()-1-position).getId());
+                        noteBooklist.get(noteBooklist.size()-1-position).setNotename(editInfo.getText().toString());
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }

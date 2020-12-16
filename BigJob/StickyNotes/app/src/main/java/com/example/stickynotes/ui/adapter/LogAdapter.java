@@ -32,8 +32,9 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.textView.setText(doneThingList.get(position).getTimeStart()
-                +"    "+doneThingList.get(position).getContent());
+        holder.textView.setText(doneThingList.
+                get(doneThingList.size()-1-position).getTimeStart()
+                +"    "+doneThingList.get(doneThingList.size()-1-position).getContent());
     }
 
     @Override

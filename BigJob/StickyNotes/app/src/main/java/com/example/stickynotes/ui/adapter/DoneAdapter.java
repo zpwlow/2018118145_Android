@@ -42,21 +42,21 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-        holder.textView.setText(doneThings.get(position).getContent());
+        holder.textView.setText(doneThings.get(doneThings.size()-1-position).getContent());
 
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TodoThing todoThing = new TodoThing();
                 if(!((position+1)>doneThings.size())){
-
-                    todoThing.setContent(doneThings.get(position).getContent());
-                    todoThing.setBookName(doneThings.get(position).getBookName());
+                    todoThing.setContent(doneThings.get(doneThings.size()-1-position).getContent());
+                    todoThing.setBookName(doneThings.get(doneThings.size()-1-position).getBookName());
                     todoThing.save();
                     todoLive.postValue(DataSupport.where("bookName=?",
-                            doneThings.get(position).getBookName()).find(TodoThing.class));
-                    DataSupport.delete(DoneThing.class,doneThings.get(position).getId());
-                    doneThings.remove(position);
+                            doneThings.get(doneThings.size()-1-position).getBookName()).find(TodoThing.class));
+                    DataSupport.delete(DoneThing.class,
+                            doneThings.get(doneThings.size()-1-position).getId());
+                    doneThings.remove(doneThings.size()-1-position);
                     notifyDataSetChanged();
                 }
             }
@@ -75,8 +75,9 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.ViewHolder> {
                 deldteY.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        DataSupport.delete(DoneThing.class,doneThings.get(position).getId());
-                        doneThings.remove(position);
+                        DataSupport.delete(DoneThing.class,
+                                doneThings.get(doneThings.size()-1-position).getId());
+                        doneThings.remove(doneThings.size()-1-position);
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }

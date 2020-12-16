@@ -53,11 +53,11 @@ public class TodoBAdapter extends RecyclerView.Adapter<TodoBAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-        holder.textView.setText(todoBooks.get(position).getTodoname());
+        holder.textView.setText(todoBooks.get(todoBooks.size()-1-position).getTodoname());
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choose.postValue(todoBooks.get(position).getTodoname());
+                choose.postValue(todoBooks.get(todoBooks.size()-1-position).getTodoname());
 
                 NavController navController = Navigation.findNavController(v);
                 navController.navigate(R.id.action_todoBook_to_todoFragment);
@@ -67,7 +67,7 @@ public class TodoBAdapter extends RecyclerView.Adapter<TodoBAdapter.ViewHolder> 
         holder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if(position==0){
+                if(todoBooks.size()-1-position==0){
 
                 }
                 else {
@@ -85,8 +85,8 @@ public class TodoBAdapter extends RecyclerView.Adapter<TodoBAdapter.ViewHolder> 
                         @Override
                         public void onClick(View v) {
                             DataSupport.delete(TodoBook.class,
-                                    todoBooks.get(position).getId());
-                            todoBooks.remove(position);
+                                    todoBooks.get(todoBooks.size()-1-position).getId());
+                            todoBooks.remove(todoBooks.size()-1-position);
                             notifyDataSetChanged();
                             dialog.dismiss();
                         }
@@ -127,12 +127,13 @@ public class TodoBAdapter extends RecyclerView.Adapter<TodoBAdapter.ViewHolder> 
                     public void onClick(View v) {
                         TodoBook todoBook = new TodoBook();
                         todoBook.setTodoname(editInfo.getText().toString());
-                        todoBook.update(todoBooks.get(position).getId());
+                        todoBook.update(todoBooks.get(todoBooks.size()-1-position).getId());
                         TodoThing todoThing = new TodoThing();
                         todoThing.setBookName(editInfo.getText().toString());
                         todoThing.updateAll("bookName=?",
-                                todoBooks.get(position).getTodoname());
-                        todoBooks.get(position).setTodoname(editInfo.getText().toString());
+                                todoBooks.get(todoBooks.size()-1-position).getTodoname());
+                        todoBooks.get(todoBooks.size()-1-position)
+                                .setTodoname(editInfo.getText().toString());
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }
