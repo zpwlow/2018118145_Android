@@ -64,6 +64,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        //noteList.size()-1-position 将recyclerView 的列表倒置显示.
+        // 最新更新的显示在前面。
         String text = noteList.get(noteList.size()-1-position).getContent();
         int start = (int) getLineMaxNumber(text,20,170);
         int end = text.length();
@@ -127,9 +129,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         });
 
     }
-
-
-
 
     @Override
     public int getItemCount() {
