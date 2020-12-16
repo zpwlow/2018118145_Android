@@ -44,7 +44,6 @@ public class HomeViewModel extends ViewModel {
                 //https://abc.mcloc.cn/abc/api/words/
                 try {
                     Response response = okHttpClient.newCall(request).execute();
-                    System.out.println(response);
                     String jsondata = response.body().string();
                     One oneN = new One();
                     oneN.setHitokoto(jsondata);
@@ -53,7 +52,6 @@ public class HomeViewModel extends ViewModel {
                     if (!(oneN.getFrom().matches("[\\u4e00-\\u9fa5]+"))){
                         oneN.setFrom("佚名");
                     }
-
                      */
                     one.postValue(oneN);
                 } catch (IOException e) {

@@ -5,20 +5,46 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
+import android.widget.TextView;
+
+import com.example.stickynotes.model.GSON.One;
+
+import java.io.IOException;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class SplashActivity extends Activity {
 
-    private static int SPLASH_DISPLAY_LENGHT= 1500;    //延迟1.5秒
+    private static int SPLASH_DISPLAY_LENGHT= 2000;    //延迟2秒
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);//去掉标题
         setContentView(R.layout.activity_splash);
+        final TextView textView = findViewById(R.id.textView2);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                OkHttpClient okHttpClient = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url("https://abc.mcloc.cn/abc/love/php/love.php")
+                        .build();
+                try {
+                    Response response = okHttpClient.newCall(request).execute();
+                    String data = response.body().string();
+                    textView.setText(data);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);	//第二个参数即为执行完跳转后的Activity
+                Intent intent = new Intent(SplashActivity.this,
+                        MainActivity.class);	//第二个参数即为执行完跳转后的Activity
                 SplashActivity.this.startActivity(intent);
                 SplashActivity.this.finish();   //关闭splashActivity，将其回收，否则按返回键会返回此界面
             }
