@@ -8,7 +8,7 @@ import android.view.Window;
 
 public class SplashActivity extends Activity {
 
-    private static int SPLASH_DISPLAY_LENGHT= 1000;    //延迟1秒
+    private static int SPLASH_DISPLAY_LENGHT= 1500;    //延迟1.5秒
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

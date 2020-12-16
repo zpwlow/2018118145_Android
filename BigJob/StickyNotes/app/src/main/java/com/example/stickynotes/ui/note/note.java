@@ -26,6 +26,7 @@ import com.example.stickynotes.ui.adapter.NoteAdapter;
 import com.example.stickynotes.ui.notebook.NoteBookViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Collections;
 import java.util.List;
 
 
@@ -108,6 +109,7 @@ public class note extends Fragment {
         recyclerView = view.findViewById(R.id.NoterecyclerView);
         StaggeredGridLayoutManager layoutManager = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        //layoutManager.setReverseLayout(true);
         recyclerView.setLayoutManager(layoutManager);
         //recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(),2));
         recyclerView.setAdapter(noteAdapter);

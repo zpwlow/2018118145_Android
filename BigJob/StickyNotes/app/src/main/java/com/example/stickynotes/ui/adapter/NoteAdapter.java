@@ -48,8 +48,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         this.context = context;
     }
 
-
-
     Context context;
 
 
@@ -66,7 +64,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        String text = noteList.get(position).getContent();
+        String text = noteList.get(noteList.size()-1-position).getContent();
         int start = (int) getLineMaxNumber(text,20,170);
         int end = text.length();
         if (end>start) {
@@ -82,7 +80,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
             holder.textView.setText("");
         }
         //holder.textView.setText(noteList.get(position).getContent());
-        holder.textView2.setText(noteList.get(position).getWritetime());
+        holder.textView2.setText(noteList.get(noteList.size()-1-position).getWritetime());
 
         //设置长按删除事件
         holder.linearLayout.setOnLongClickListener(new View.OnLongClickListener() {
@@ -106,8 +104,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                     @Override
                     public void onClick(View v) {
 
-                        DataSupport.delete(Note.class,noteList.get(position).getId());
-                        noteList.remove(position);
+                        DataSupport.delete(Note.class,noteList.get(noteList.size()-1-position).getId());
+                        noteList.remove(noteList.size()-1-position);
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }
@@ -123,7 +121,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(v);
                 Bundle bundle = new Bundle();
-                bundle.putInt("Noteid",noteList.get(position).getId());
+                bundle.putInt("Noteid",noteList.get(noteList.size()-1-position).getId());
                 navController.navigate(R.id.action_note_to_editNote,bundle);
             }
         });
