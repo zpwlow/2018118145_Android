@@ -21,13 +21,14 @@
         android:layout_height="81dp"
         android:gravity="center"
         android:text="随记"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="95dp"
+        android:layout_height="match_parent"
         android:gravity="center"
+        android:text="记录生活的点点滴滴"
         android:textSize="20sp" />
 
 </LinearLayout>

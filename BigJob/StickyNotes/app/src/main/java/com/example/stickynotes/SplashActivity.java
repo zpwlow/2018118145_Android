@@ -24,7 +24,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);//去掉标题
         setContentView(R.layout.activity_splash);
-        final TextView textView = findViewById(R.id.textView2);
+        /*
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -35,12 +35,15 @@ public class SplashActivity extends Activity {
                 try {
                     Response response = okHttpClient.newCall(request).execute();
                     String data = response.body().string();
+                    TextView textView = findViewById(R.id.textView2);
                     textView.setText(data);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }).start();
+
+         */
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 Intent intent = new Intent(SplashActivity.this,

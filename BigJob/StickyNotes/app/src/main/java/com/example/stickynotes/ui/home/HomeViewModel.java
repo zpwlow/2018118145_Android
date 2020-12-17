@@ -6,13 +6,10 @@ import androidx.lifecycle.ViewModel;
 import com.example.stickynotes.model.GSON.One;
 import com.example.stickynotes.model.OneHome;
 import com.example.stickynotes.util.TranNum;
-import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

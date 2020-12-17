@@ -16,19 +16,15 @@ public class Dbservice {
 
         if(DataSupport.count(UserInfo.class)==0){
 
-            Log.i("gong","创建数据库");
             LitePal.getDatabase();
-
 
             NoteBook noteBook = new NoteBook();
             noteBook.setNotename("笔记");
             noteBook.save();
 
-
             TodoBook todoBook = new TodoBook();
             todoBook.setTodoname("日常");
             todoBook.save();
-
 
             Note note3 = new Note();
             note3.setNotename("笔记");
@@ -42,20 +38,17 @@ public class Dbservice {
             note.setWritetime("2020.5.20");
             note.save();
 
-
             Note note1 = new Note();
             note1.setNotename("笔记");
             note1.setContent("长按信息对应项——>修改签名昵称");
             note1.setWritetime("2020.5.20");
             note1.save();
 
-
             UserInfo userInfo = new UserInfo();
             userInfo.setSaying("low(@_@)");
             userInfo.setName("Mr. Zhong");
             userInfo.setProfile("1");
             userInfo.save();
-
         }
         else {
             LitePal.getDatabase();
