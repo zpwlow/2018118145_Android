@@ -5,19 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
-import android.widget.TextView;
 
-import com.example.stickynotes.model.GSON.One;
-
-import java.io.IOException;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class SplashActivity extends Activity {
 
-    private static int SPLASH_DISPLAY_LENGHT= 2000;    //延迟2秒
+    private static int SPLASH_DISPLAY_LENGHT= 1000;    //延迟2秒
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
